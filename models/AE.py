@@ -72,8 +72,11 @@ class Autoencoder():
 
             if self.use_dropout:
                 x = Dropout(rate = 0.25)(x)
+                
+            print(x) # Nathan 
 
         shape_before_flattening = K.int_shape(x)[1:]
+        print(shape_before_flattening) # Nathan
 
         x = Flatten()(x)
         encoder_output= Dense(self.z_dim, name='encoder_output')(x)
@@ -108,6 +111,8 @@ class Autoencoder():
                     x = Dropout(rate = 0.25)(x)
             else:
                 x = Activation('sigmoid')(x)
+
+            print(shape_before_flattening) # Nathan
 
         decoder_output = x
 
